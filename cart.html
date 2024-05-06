@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home_Page_UH_CAFE</title> 
+    <link rel="stylesheet" href="style.css" />    
+</head>
+<body>
+    <header> 
+        <h1>UH Sugarland Cafeteria</h1>
+        <button onclick="window.location.href='https://www.uh.edu/sugarland/';" class="UH-button">
+            <img src="Images/UH Logo.png" alt="UH-Logo" height="60">
+        </button>
+    </header>
+
+    <div class="SCnav">
+        <a href="search.html">Search</a>
+        <a href="cart.html" class="active">Cart</a> 
+    </div>
+
+    <div class="mainnav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="contact.html">Contact</a>
+    </div>
+        
+    <style>
+        .cart-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+    
+        .cart-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    
+        .item-name {
+            font-weight: bold;
+        }
+    
+        .cart-actions {
+            margin-top: 20px;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Your Cart</h1>
+        
+        <div class="cart-container" id="cart">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+    
+        <div class="cart-actions">
+            <button onclick="clearCart()">Clear Cart</button>
+        </div>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                updateCart();
+            });
+    
+            function updateCart() {
+                const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+                if (cartItems) {
+                    const cartContainer = document.getElementById('cart');
+                    cartContainer.innerHTML = ''; // Clear previous cart items
+                    cartItems.forEach((item, index) => {
+                        const itemElement = document.createElement('div');
+                        itemElement.classList.add('cart-item');
+                        itemElement.innerHTML = `
+                            <div class="item-name">${item.name}</div>
+                            <div>$${item.price}</div>
+                            <button onclick="removeItem(${index})">Remove</button>
+                        `;
+                        cartContainer.appendChild(itemElement);
+                    });
+                }
+            }
+    
+            function clearCart() {
+                localStorage.removeItem('cartItems');
+                updateCart(); // Update cart display after clearing
+            }
+    
+            function removeItem(index) {
+                let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+                cartItems.splice(index, 1);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                updateCart(); // Update cart display after removing item
+            }
+        </script>
+       <style>
+        .submit-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #960c22;
+            color: #fff9d9;
+            text-decoration: none; 
+            border: none;
+            border-radius: 0 5px 5px 0; 
+            cursor: pointer; 
+        }
+    
+        .submit-button:hover {
+        background-color: #640817;
+        color: white;
+        }
+        </style>
+    
+    <a href="thankyou.html" class="submit-button">Submit Order</a>
+    <div>
+        <header class="bottom-header">
+            <h1>Subscribe for Updates</h1>
+            <form action="submit.php" method="post" class="email-form">
+                <input type="email" name="email" placeholder="Enter your email" class="email-input" required>
+                <button type="submit" class="submit-button">Submit</button>
+        </header>
+    </section>
+</div>
+</body>
+</html>

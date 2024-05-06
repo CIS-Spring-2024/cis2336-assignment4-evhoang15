@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home_Page_UH_CAFE</title> 
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header> 
+        <h1>UH Sugarland Cafeteria</h1>
+        <button onclick="window.location.href='https://www.uh.edu/sugarland/';" class="UH-button">
+            <img src="Images/UH Logo.png" alt="UH-Logo" height="60">
+        </button>
+    </header>
+
+    <div class="SCnav">
+        <a href="search.html">Search</a>
+        <a href="cart.html">Cart</a> 
+    </div>
+
+    <div class="mainnav">
+        <a href="home.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="container-home">
+        <div class="left-content">
+            <img src="Images/burger.jpg" alt="Burger-Banner" height="170">
+        </div>
+        <div class="web-page-body">
+            <p2>UH at Sugar Land offers several dining and vending options to meet the needs of our busy students. Food and drinks are allowed in general areas and study areas in the Albert & Mamie George Building, Brazos Hall and the Sugar Land Academic Building. With faculty permission, students are allowed to bring drinks and food into general classrooms. Food and drinks are prohibited in computer labs, instructional television classrooms and science labs.</p2>
+        </div>
+        <div class="image-container">
+            <img src="Images/Cafeteria Line.jpg" alt="Cafe-line" height="200">
+            <img src="Images/UH Long Logo.png" alt="UH-Logo-long" height="60">
+            <img src="Images/Infosys.Electronic.City.Cafeteria.jpg" alt="Full-Cafe" height="200">
+        </div>
+        <div class="suggestion-box">Suggestion Box</div>
+    </div>
+
+    <header class="bottom-header">
+        <h1>Subscribe for Updates</h1>
+        <form action="submit.php" method="post" class="email-form">
+            <input type="email" name="email" placeholder="Enter your email" class="email-input" required>
+            <button type="submit" class="submit-button">Submit</button>
+    </header>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Menu_Page_UH_CAFE</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <script src="script.js"></script>
+</head>
+<!-- Was unhappy with original design, so major adjustments were made -->
+<body>
+    <header> 
+        <h1>UH Sugarland Cafeteria</h1>
+        <button onclick="window.location.href='https://www.uh.edu/sugarland/';" class="UH-button">
+            <img src="Images/UH Logo.png" alt="UH-Logo" height="60">
+        </button>
+    </header>
+
+    <div class="SCnav">
+        <a href="search.html">Search</a>
+        <a href="cart.html">Cart</a> 
+    </div>
+
+    <div class="mainnav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="menu.html" class="active">Menu</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+</head>
+<body>
+    <div class="container">
+        <div class="top-rectangle">
+            <div class="carousel-slide">
+                <img src="Menu-Images/grilled-salmon.jpeg" alt="Food 1" class="slide-img" data-food="food1">
+                <img src="Menu-Images/Chicken-Tikka.jpeg" alt="Food 2" class="slide-img" data-food="food2">
+                <img src="Menu-Images/Beef-stir.jpeg" alt="Food 3" class="slide-img" data-food="food3">
+                <img src="Menu-Images/caprese-salad.jpeg" alt="Food 4" class="slide-img" data-food="food4">
+                <img src="Menu-Images/quinoa-beans.jpeg" alt="Food 5" class="slide-img" data-food="food5">
+                <img src="Menu-Images/scrimp.jpeg" alt="Food 6" class="slide-img" data-food="food6">
+                <img src="Menu-Images/chicken.jpeg" alt="Food 7" class="slide-img" data-food="food7">
+                <img src="Menu-Images/veg-sushi.jpeg" alt="Food 8" class="slide-img" data-food="food8">
+                <img src="Menu-Images/ribs.jpeg" alt="Food 9" class="slide-img" data-food="food9">
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item" data-food="food1">
+                <h3 data-food="food1">Grilled Salmon with Lemon Butter Sauce ($5)</h3>
+                <button class="add-to-cart" value="Run" onclick="addToCart('Grilled Salmon', 5); alert('Grilled Salmon added to cart!')">Add to Cart</button>
+            </div>
+            <div class="grid-item" data-food="food1">
+                <h3 data-food="food2">Chicken Tikka Masala with Basmati Rice ($10)</h3>
+                <button class="add-to-cart" value="Run" onclick="addToCart('Chicken Tikka Masala', 10); alert('Chicken Tikka Masala added to cart!')">Add to Cart</button>
+            </div>
+            <div class="grid-item" data-food="food1">
+                <h3 data-food="food3">Beef Stir-Fry with Vegetables and Soy Sauce ($12)</h3>
+                <button class="add-to-cart" value="Run" onclick="addToCart('Beef Stir-Fry', 12); alert('Beef Stir-Fry added to cart!')">Add to Cart</button>
+            </div>
+            <div class="grid-item" data-food="food1">
+                <h3 data-food="food4">Caprese Salad with Fresh Mozzarella, Tomatoes, and Basil ($8)</h3>
+                <button  class="add-to-cart" value="Run" onclick="addToCart('Caprese Salad', 8); alert('Caprese Salad added to cart!')">Add to Cart</button>
+            </div>
+            <div class="grid-item" data-food="food1">
+                <h3 data-food="food5">Quinoa and Black Bean Salad with Avocado Dressing ($9)</h3>
+                <button class="add-to-cart" value="Run" onclick="addToCart('Quinoa and Black Bean Salad', 9); alert('Quinoa and Black Bean Salad added to cart!')">Add to Cart</button>
+            </div>
+            <div class="grid-item" data-food="food1">
+                <h3 data-food="food6">Shrimp Scampi Pasta with Garlic and White Wine Sauce ($15)</h3>
+                <button class="add-to-cart" value="Run" onclick="addToCart('Shrimp Scampi', 15); alert('Shrimp Scampi added to cart!')">Add to Cart</button>
+            </div>
+            <div class="grid-item" data-food="food1">
+                <h3 data-food="food7">Roast Chicken with Rosemary and Garlic ($11)</h3>
+                <button class="add-to-cart" value="Run" onclick="addToCart('Roast Chicken', 11); alert('Roast Chicken added to cart!')">Add to Cart</button>
+            </div>
+            <div class="grid-item" data-food="food1">
+                <h3 data-food="food8">Vegetarian Sushi Rolls with Avocado, Cucumber, and Carrot ($10)</h3>
+                <button class="add-to-cart" value="Run" onclick="addToCart('Vegetarian Sushi', 10); alert('Vegetarian Sushi added to cart!')">Add to Cart</button>
+            </div>
+            <div class="grid-item" data-food="food1">
+                <h3 data-food="food9">BBQ Ribs with Homemade Sauce ($13)</h3>
+                <button class="add-to-cart" value="Run" onclick="addToCart('BBQ Ribs with Homemade Sauce', 13); alert('BBQ Ribs added to cart!')">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(itemName, itemPrice) {
+            const cartItem = { name: itemName, price: itemPrice };
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.push(cartItem);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        }
+    </script>
+</body>
+</html>
